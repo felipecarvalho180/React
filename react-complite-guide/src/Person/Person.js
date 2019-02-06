@@ -1,5 +1,6 @@
 import React from 'react';
 import './Person.css';
+import Radium from 'radium';
 
 const person = (props) => {
     //return <p>I'm a person and I have {Math.floor(Math.random() * 30)} years old</p>
@@ -12,4 +13,4 @@ const person = (props) => {
     )
 }
 
-export default person;
+export default Radium(person);
