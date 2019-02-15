@@ -1,16 +1,22 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person';
 
-class Persons extends Component {
+class Persons extends PureComponent {
   /*static getDerivedStateFromProps(props, state){
     console.log('persons js getDerived', props);
     return state;
   }*/
 
-  shouldComponentUpdate(nextProps, nextState){
+  /*shouldComponentUpdate(nextProps, nextState){
     console.log('persons js shouldComponentUpdate');
-    return true;
-  }
+    if (nextProps.persons !== this.props.persons ||
+        nextProps.changed !== this.props.changed ||
+        nextProps.clicked !== this.props.clicked ) {
+      return true;
+    }else{
+      return false;
+    }
+  }*/
 
   getSnapshotBeforeUpdate(prevProps, prevState){
     console.log('persons js getSnapshotBeforeUpdate');
@@ -20,6 +26,10 @@ class Persons extends Component {
   componentDidUpdate(prevProps, prevState, snapshot){
     console.log('persons js componentDidUpdate');
     console.log(snapshot)
+  }
+
+  componentWillUnmount(){
+    console.log('persons js componentWillUnmount');
   }
 
   render(){
